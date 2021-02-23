@@ -1,0 +1,3 @@
+<% if policy(:page).profile? %>
+  <p>Welcome <%= @user.email %></p>
+<% end %>

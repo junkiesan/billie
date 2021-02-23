@@ -3,4 +3,12 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def profile
+    # authorize @page
+    @user = current_user
+    authorize(:page, :profile?)
+
+  end
+
 end
