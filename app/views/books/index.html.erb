@@ -1,0 +1,13 @@
+<h1>Books#index</h1>
+<p>Find me in app/views/books/index.html.erb</p>
+
+<div class="book-cards- container">
+  <% @books.each do |book| %>
+
+    <div class="book-card">
+      <h2><%= link_to book.title, book_path(book) %></h2>
+      <p><%= book.author %></p>
+      <p><%= book.editor %></p>
+    </div>
+  <% end %>
+</div>
