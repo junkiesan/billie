@@ -3,7 +3,8 @@ class BooksController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    authorize @books
+    skip_policy_scope
+    # authorize @book
     @books = Book.all
   end
 
