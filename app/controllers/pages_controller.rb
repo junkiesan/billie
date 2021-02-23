@@ -5,7 +5,10 @@ class PagesController < ApplicationController
   end
 
   def profile
-    authorize @page
+    # authorize @page
+    @user = current_user
+    authorize(:page, :profile?)
+
   end
 
 end

@@ -6,6 +6,6 @@ class PagePolicy < ApplicationPolicy
   end
 
   def profile?
-    record.user == user
+    true
   end
 end
