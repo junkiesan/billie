@@ -3,4 +3,9 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def profile
+    authorize @page
+  end
+
 end
