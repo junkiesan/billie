@@ -1,8 +1,13 @@
 # Billie
 
-Billie is a book management application to help you keep up with your physical library. 
+
+Billie is a book management application to help you keep up with your physical library.
 Scan a book with your phone or search into our database to put your collection into a digital library.
 Billie is a freemium application developed in open source.
+
+Billie is **100% open source**, and we fully welcome **contribution to the code**!
+
+For more detailed information on contributing, please Read our [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Summary
 
@@ -19,6 +24,13 @@ Billie is a freemium application developed in open source.
 ## Getting Started
 
 If you want to contribute, please follow the instructions below.
+
+ -->- fork from the branch `develop` and merge request to the branch `develop`! Any request to `master` will be automatically rejected.
+
+Feel free to browse through the issues and see if you can help us in one or multiple of them:
+
+- **List view** - View on Notion: [Notion](https://www.notion.so/Billie-67df0c1838604414b76cbf8a6023c29e) to find a ticket in our backlog. If you have any idea just create a ticket.
+- **Board view** - View a Trello-like view of the issues listed by priority and state (to do, doing, ready/review): [dev-project](https://github.com/junkiesan/billie/projects/1).
 Go on the [Notion](https://www.notion.so/Billie-67df0c1838604414b76cbf8a6023c29e) to find a ticket in our backlog. If you have any idea just create a ticket.
 
 ### Prerequisites
@@ -94,6 +106,7 @@ repository](https://github.com/PurpleBooth/a-good-readme-template/tags). -->
 ## Authors
 
   - [**junkiesan**](https://github.com/junkiesan)
+  - [**Isalafont**](https://github.com/Isalafont)
 
 See also the list of
 [contributors](https://github.com/junkiesan/billie/contributors)
