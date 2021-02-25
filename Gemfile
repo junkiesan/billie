@@ -41,6 +41,7 @@ gem 'faker', '~> 1.6', '>= 1.6.6'
 gem 'pundit', '~> 1.1'
 
 group :development, :test do  gem 'pry-byebug'
+  gem 'rspec-rails', '~> 4.0.2'
   gem 'pry-rails'
   gem 'dotenv-rails'
 
