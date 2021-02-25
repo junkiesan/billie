@@ -51,4 +51,6 @@ RSpec.describe Book, type: :model do
       it { is_expected.to validate_presence_of(:description) }
     end
   end
+
+  p FactoryBot.create :book
 end
