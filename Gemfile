@@ -34,6 +34,9 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
+# Use Faker to create fake objects
+gem 'faker', '~> 1.6', '>= 1.6.6'
+
 #Pundit => authorisations
 gem 'pundit', '~> 1.1'
 
