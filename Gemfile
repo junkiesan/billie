@@ -65,6 +65,10 @@ group :test do
 
   # Testing with rspec ActiveRecords Models associations
   gem 'shoulda-matchers', '~> 4.0'
+
+  # Populate testing database with fake objects
+  gem 'factory_bot_rails', '~> 6.1'
+
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
