@@ -66,6 +66,9 @@ group :test do
   # Testing with rspec ActiveRecords Models associations
   gem 'shoulda-matchers', '~> 4.0'
 
+  # Check Controller actions and views status
+  gem 'rails-controller-testing', '~> 0.0.3'
+  
   # Populate testing database with fake objects
   gem 'factory_bot_rails', '~> 6.1'
 
