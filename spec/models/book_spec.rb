@@ -32,4 +32,23 @@ RSpec.describe Book, type: :model do
       expect(subject).to_not be_valid
     end 
   end
+
+  describe 'associations' do
+    it { should belong_to(:user).class_name('User') }
+  end
+
+  describe 'validations' do
+    context 'it validates title' do
+      it { is_expected.to validate_presence_of(:title) }
+    end
+    context 'it validates author' do
+      it { is_expected.to validate_presence_of(:author) }
+    end
+    context 'it validates genre' do
+      it { is_expected.to validate_presence_of(:genre) }
+    end
+    context 'it validates description' do
+      it { is_expected.to validate_presence_of(:description) }
+    end
+  end
 end
