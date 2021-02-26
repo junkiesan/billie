@@ -7,6 +7,6 @@ FactoryBot.define do
     description { Faker::Lorem.paragraph }
     isbn { Faker::IDNumber.valid }
     image { "image.png" }
-    user_id { User.last }
+    user
   end
 end
