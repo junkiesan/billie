@@ -74,6 +74,8 @@ group :test do
   
   # Cleaning Database
   gem 'database_cleaner-active_record', '~> 2.0'
+  gem 'simplecov', require: false
+
 
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
