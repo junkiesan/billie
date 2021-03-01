@@ -24,6 +24,8 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import {fetchBooks} from "../plugins/init_open_library";
+import {fetchGoogleBooks} from "../plugins/init_google_books";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -31,4 +33,7 @@ import "bootstrap";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  // fetchBooks();
+  fetchGoogleBooks();
+  console.log("hello");
 });
