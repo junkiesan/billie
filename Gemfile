@@ -71,6 +71,11 @@ group :test do
   
   # Populate testing database with fake objects
   gem 'factory_bot_rails', '~> 6.1'
+  
+  # Cleaning Database
+  gem 'database_cleaner-active_record', '~> 2.0'
+  gem 'simplecov', require: false
+
 
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
