@@ -34,6 +34,9 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
+# Parse HTTP headers
+gem 'httparty', '~> 0.13.7'
+
 # Use Faker to create fake objects
 gem 'faker', '~> 1.6', '>= 1.6.6'
 
