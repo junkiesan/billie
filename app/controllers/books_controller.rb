@@ -12,6 +12,7 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
     @book.ean_reader = params[:ean_reader]
+    p params
   end
 
   def get_barcode

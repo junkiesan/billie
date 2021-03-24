@@ -60,12 +60,13 @@ function load_quagga(){
         last_result.push(last_code);
         if (last_result.length > 20) {
           var code = order_by_occurrence(last_result)[0];
+
           last_result = [];
           Quagga.stop();
           $.ajax({
             type: "POST",
             url: '/books/get_barcode',
-            data: { ean_reader: code }
+            data: { ean_reader: code },
           });
         }
       });
@@ -95,7 +96,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   // fetchBooks();
-  fetchGoogleBooks();
+  // fetchGoogleBooks();
   load_quagga();
   console.log("hello");
 });
