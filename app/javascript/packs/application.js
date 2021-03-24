@@ -7,7 +7,10 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("quagga").start()
+require("jquery")
+// require("jquery_ujs")
+// require("quagga")
+// require("tree .")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -25,10 +28,12 @@ require("quagga").start()
 
 // External imports
 import "bootstrap";
+import Quagga from 'quagga';
 
 // Internal imports, e.g:
 import {fetchBooks} from "../plugins/init_open_library";
 import {fetchGoogleBooks} from "../plugins/init_google_books";
+// import "./quagga.js"
 
 //Quagga functions
 function order_by_occurrence(arr) {
@@ -54,13 +59,13 @@ function load_quagga(){
         var last_code = result.codeResult.code;
         last_result.push(last_code);
         if (last_result.length > 20) {
-          code = order_by_occurrence(last_result)[0];
+          var code = order_by_occurrence(last_result)[0];
           last_result = [];
           Quagga.stop();
           $.ajax({
             type: "POST",
-            url: '/products/get_barcode',
-            data: { upc: code }
+            url: '/books/get_barcode',
+            data: { ean_reader: code }
           });
         }
       });
@@ -74,7 +79,7 @@ function load_quagga(){
         target: document.querySelector('#barcode-scanner')
       },
       decoder: {
-          readers : ['ean_reader','ean_8_reader','code_39_reader','code_39_vin_reader','codabar_reader','upc_reader','upc_e_reader']
+        readers : ['ean_reader','ean_8_reader','code_39_reader','code_39_vin_reader','codabar_reader','upc_reader','upc_e_reader']
       }
     },function(err) {
         if (err) { console.log(err); return }
