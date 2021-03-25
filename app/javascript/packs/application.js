@@ -59,8 +59,8 @@ function load_quagga(){
         var last_code = result.codeResult.code;
         last_result.push(last_code);
         if (last_result.length > 20) {
-          var code = order_by_occurrence(last_result)[0];
-
+          var code = order_by_occurrence(last_result);
+          // var code = order_by_occurrence(last_result)[0];
           last_result = [];
           Quagga.stop();
           $.ajax({
@@ -80,7 +80,7 @@ function load_quagga(){
         target: document.querySelector('#barcode-scanner')
       },
       decoder: {
-        readers : ['ean_reader','ean_8_reader','code_39_reader','code_39_vin_reader','codabar_reader','upc_reader','upc_e_reader']
+        readers : ['code_128_reader', 'ean_8_reader', 'ean_reader','code_39_reader','code_39_vin_reader','codabar_reader','upc_reader','upc_e_reader']
       }
     },function(err) {
         if (err) { console.log(err); return }
