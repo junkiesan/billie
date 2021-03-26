@@ -12,11 +12,14 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
     @book.ean_reader = params[:ean_reader]
-    p params
+    # @matching = @book.ean_reader.match(/^(?:ISBN(?:-13)?:?\ )?(?=[0-9]{13}$|(?=(?:[0-9]+[-\ ]){4})[-\ 0-9]{17}$)97[89][-\ ]?[0-9]{1,5}[-\ ]?[0-9]+[-\ ]?[0-9]+[-\ ]?[0-9]$/)
+    @matching = @book.ean_reader
+    @matching.sort
   end
 
   def get_barcode
     @book = Book.find_or_initialize_by(ean_reader: params[:ean_reader])
+
     unless @book.new_record?
       redirect_to @book
     else
