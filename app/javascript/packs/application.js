@@ -66,7 +66,7 @@ function load_quagga(){
           $.ajax({
             type: "POST",
             url: '/books/get_barcode',
-            data: { ean_reader: code },
+            data: { isbn: code },
           });
         }
       });

@@ -11,19 +11,24 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    @book.ean_reader = params[:ean_reader]
-    # @matching = @book.ean_reader.match(/^(?:ISBN(?:-13)?:?\ )?(?=[0-9]{13}$|(?=(?:[0-9]+[-\ ]){4})[-\ 0-9]{17}$)97[89][-\ ]?[0-9]{1,5}[-\ ]?[0-9]+[-\ ]?[0-9]+[-\ ]?[0-9]$/)
-    @matching = @book.ean_reader
-    @matching.sort
+    @quagga_result = params[:isbn]
+    # @matching = @book.isbn.match(/^(?:ISBN(?:-13)?:?\ )?(?=[0-9]{13}$|(?=(?:[0-9]+[-\ ]){4})[-\ 0-9]{17}$)97[89][-\ ]?[0-9]{1,5}[-\ ]?[0-9]+[-\ ]?[0-9]+[-\ ]?[0-9]$/)
+    scan_numbers = @quagga_result.split(',')
+    match_scan_numbers = scan_numbers.first.map {|num| num.match(/\d+/) }
+    string_scan_numbers = match_scan_numbers.map { |n| n.to_s}
+    array_isbn = string_scan_numbers.map { |n| n.match(/^(?:ISBN(?:-13)?:?\ )?(?=[0-9]{13}$|(?=(?:[0-9]+[-\ ]){4})[-\ 0-9]{17}$)97[89][-\ ]?[0-9]{1,5}[-\ ]?[0-9]+[-\ ]?[0-9]+[-\ ]?[0-9]$/) }
+    good_isbn = array_isbn.select { |n| n != nil }
+    isbn = good_isbn.first.to_s
+    @book.isbn = isbn
   end
 
   def get_barcode
-    @book = Book.find_or_initialize_by(ean_reader: params[:ean_reader])
+    @book = Book.find_or_initialize_by(isbn: params[:isbn])
 
     unless @book.new_record?
       redirect_to @book
     else
-      redirect_to new_book_path(ean_reader: params[:ean_reader])
+      redirect_to new_book_path(isbn: params[:isbn])
     end
   end
 
