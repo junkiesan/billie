@@ -65,7 +65,7 @@ function load_quagga(){
           Quagga.stop();
           $.ajax({
             type: "POST",
-            url: '/books/get_barcode',
+            url: '/books/barcode',
             data: { isbn: code },
           });
         }
