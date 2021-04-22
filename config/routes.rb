@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :books do
-    post :get_barcode, on: :collection
+    post :barcode, on: :collection
   end
 
   get "/profile", to: "pages#profile"
