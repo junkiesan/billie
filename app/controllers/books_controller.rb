@@ -11,13 +11,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    @book.isbn = params[:isbn]
-    @book.title = params[:title]
-    @book.author = params[:author]
-    @book.description = params[:description]
-    @book.editor = params[:editor]
-    @book.genre = params[:genre]
-    @book.image = params[:image]
+    CreateBookService.new(params, @book).call
     @book.save!
     redirect_to book_path(@book)
   end
@@ -26,7 +20,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @book.isbn = BarcodeService.new(params[:isbn]).call
     @new_book = Book.find_or_initialize_by(isbn: @book.isbn)
-    if @new_book.new_record?
+    if @book.isbn == "" || @new_book.new_record?
       redirect_to @new_book
     else
       book_array = ImportBookService.new(@book.isbn).call
@@ -46,4 +40,3 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 end
-
