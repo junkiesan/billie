@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_books, only: [:show]
+  before_action :set_books, only: [:show, :update]
   # skip_before_action :authenticate_user!
 
   def index
@@ -32,6 +32,12 @@ class BooksController < ApplicationController
                                 genre: book_array[4],
                                 image: book_array[5])
     end
+  end
+
+  def update
+    @book.shelf_list.add(params["book"]["shelf_list"])
+    @book.update(book_params)
+    redirect_to book_path(@book)
   end
 
   private
