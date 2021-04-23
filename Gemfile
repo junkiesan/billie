@@ -43,6 +43,9 @@ gem 'faker', '~> 1.6', '>= 1.6.6'
 #Pundit => authorisations
 gem 'pundit', '~> 1.1'
 
+#Act as taggable
+gem 'acts-as-taggable-on', '~> 7.0'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'rspec-rails', '~> 4.0.2'
   gem 'pry-rails'
@@ -71,10 +74,10 @@ group :test do
 
   # Check Controller actions and views status
   gem 'rails-controller-testing', '~> 0.0.3'
-  
+
   # Populate testing database with fake objects
   gem 'factory_bot_rails', '~> 6.1'
-  
+
   # Cleaning Database
   gem 'database_cleaner-active_record', '~> 2.0'
   gem 'simplecov', require: false
