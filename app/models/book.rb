@@ -5,4 +5,5 @@ class Book < ApplicationRecord
   # validates :genre, presence: true
   # validates :description, presence: true
   belongs_to :user, optional: true
+  acts_as_taggable_on :shelves
 end

@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_books, only: [:show]
+  before_action :set_books, only: [:show, :update]
   # skip_before_action :authenticate_user!
 
   def index
@@ -7,6 +7,9 @@ class BooksController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @books_user = @user.books
+    @user_shelf_list = @books_user.map { |book| book.shelf_list }
   end
 
   def new
@@ -34,9 +37,20 @@ class BooksController < ApplicationController
     end
   end
 
+  def update
+    @book.shelf_list.add(params["book"]["shelf_list"])
+    @book.update(book_params)
+    redirect_to book_path(@book)
+  end
+
   private
 
   def set_books
     @book = Book.find(params[:id])
   end
+
+  def book_params
+    params.require(:book).permit(:title, :isbn, :author, :description, :editor, :genre, :image, shelf_list: [])
+  end
+
 end
