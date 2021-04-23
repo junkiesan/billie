@@ -7,6 +7,9 @@ class BooksController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @books_user = @user.books
+    @user_shelf_list = @books_user.map { |book| book.shelf_list }
   end
 
   def new
